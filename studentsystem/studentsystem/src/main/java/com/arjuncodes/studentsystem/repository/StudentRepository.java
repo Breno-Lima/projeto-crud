@@ -7,16 +7,16 @@ import org.springframework.stereotype.Repository;
 import java.util.Optional;
 
 @Repository
-public interface StudentRepository extends JpaRepository<Student,Long> {
+public interface StudentRepository extends JpaRepository<Student,Integer> {
 
 
     @Override
-    default Optional<Student> findById(Long aLong) {
+    default Optional<Student> findById(Integer aLong) {
         return null;
     }
 
     @Override
-    Student getById(Long aLong);
+    Student getById(Integer aLong);
 
 
 

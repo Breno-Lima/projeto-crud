@@ -3,12 +3,13 @@ package com.arjuncodes.studentsystem.service;
 import com.arjuncodes.studentsystem.model.Student;
 import com.arjuncodes.studentsystem.repository.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Map;
 
-@Service
+@Repository
 public class StudentServiceImpl implements StudentService {
 
     @Autowired
@@ -26,12 +27,12 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     public void delete(Integer id) {
-        studentRepository.deleteById(Long.valueOf(id));
+        studentRepository.deleteById(id);
     }
 
     @Override
     public void deleteById(int id) {
-        studentRepository.deleteById(Long.valueOf(id));
+        studentRepository.deleteById(id);
     }
 
     @Override

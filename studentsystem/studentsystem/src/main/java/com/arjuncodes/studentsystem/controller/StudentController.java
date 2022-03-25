@@ -29,7 +29,7 @@ public class StudentController {
 
     @DeleteMapping("/{id}")
     public void deleteById(@PathVariable("id") int id) {
-        studentService.deleteAll();
+        studentService.deleteById(id);
     }
 
     @GetMapping("{id}")
