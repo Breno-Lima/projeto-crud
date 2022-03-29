@@ -3,16 +3,15 @@ package com.arjuncodes.studentsystem.controller;
 import com.arjuncodes.studentsystem.model.Student;
 import com.arjuncodes.studentsystem.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
-import java.util.NoSuchElementException;
 
 @RestController
 @RequestMapping("/student")
 @CrossOrigin
 public class StudentController {
+
     @Autowired
     private StudentService studentService;
 
@@ -27,6 +26,7 @@ public class StudentController {
         return studentService.getAllStudents();
     }
 
+
     @DeleteMapping("/{id}")
     public void deleteById(@PathVariable("id") int id) {
         studentService.deleteById(id);
@@ -36,7 +36,12 @@ public class StudentController {
     public void getStudentById(@PathVariable("id") Long id) {
         studentService.studentFindById(id);
 
-
     }
 
+    @PutMapping("/{id}")
+    public Student updateStudent(@RequestBody Student student, @PathVariable("id") int id){
+        this.studentService.updateStudent(id, student);
+        return student;
+    }
 }
+

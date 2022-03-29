@@ -5,12 +5,12 @@ import com.arjuncodes.studentsystem.repository.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 import java.util.Map;
 
 @Repository
 public class StudentServiceImpl implements StudentService {
+
 
     @Autowired
     private StudentRepository studentRepository;
@@ -25,6 +25,7 @@ public class StudentServiceImpl implements StudentService {
         return studentRepository.findAll();
     }
 
+
     @Override
     public void delete(Integer id) {
         studentRepository.deleteById(id);
@@ -38,6 +39,16 @@ public class StudentServiceImpl implements StudentService {
     @Override
     public void deleteAll() {
 
+    }
+
+    @Override
+    public Student update() {
+        return null;
+    }
+
+    @Override
+    public Student updateStudent(int studentId, Student student) {
+        return studentRepository.save(student);
     }
 
 

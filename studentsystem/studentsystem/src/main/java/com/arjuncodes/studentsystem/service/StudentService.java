@@ -1,7 +1,6 @@
 package com.arjuncodes.studentsystem.service;
 
 import com.arjuncodes.studentsystem.model.Student;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 import java.util.Map;
@@ -26,4 +25,16 @@ public interface StudentService {
     void deleteById(int id);
 
     void deleteAll();
+
+    public Student update();
+
+    Student updateStudent(int studentId, Student student);
+
+    //update
+
+    public default Student updateStudent(Student student, int studentId){
+       student.setAddress(student.getAddress());
+       student.setName(student.getName());
+       return student;
+    }
 }
